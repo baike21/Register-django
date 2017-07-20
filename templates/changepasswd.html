@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>修改密码</title>
+</head>
+<body>
+<h1>修改密码页面：</h1>
+<div>
+    <form method = 'post' enctype="multipart/form-data">
+        {{form.as_p}}
+        <input type="submit" value = "修改密码" />
+    </form>
+
+    {% if changepwd_success %}
+        <span style="color: green;">密码更改成功，请重新登录！</span>
+    {% endif %}
+
+    {% if oldpwd_is_wrong %}
+        <span style="color: red;">用户名或旧密码不符，请重新输入！</span>
+    {% endif %}
+
+    {% if newpwd_is_wrong %}
+        <span style="color: red;">两次输入的新密码不一致，请重新输入！</span>
+    {% endif %}
+</div>
+
+<br>
+<a href="http://127.0.0.1:8000/login/login/">重新登录</a>
+</body>
+</html>
